@@ -1,0 +1,41 @@
+GET /v1/directions/DXB-BKK
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET /v1/directions/DXB-BKK/longest
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET /v1/directions/DXB-BKK/shortest
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET /v1/directions/DXB-BKK/cheapest
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET /v1/directions/DXB-BKK/mostexpensive
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET /v1/directions/DXB-BKK/optimal
+Host: {{host}}
+Accept: application/json
+Content-Type: application/json
+
+###
