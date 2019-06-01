@@ -26,6 +26,7 @@ func main() {
 	router.HandleFunc("/v1/directions/DXB-BKK/mostexpensive", application.Service.GetMostExpensive)
 	router.HandleFunc("/v1/directions/DXB-BKK/longest", application.Service.GetLongest)
 	router.HandleFunc("/v1/directions/DXB-BKK/shortest", application.Service.GetShortest)
+	router.HandleFunc("/v1/directions/DXB-BKK/optimal", application.Service.GetOptimal)
 	handler := c.Handler(router)
 
 	http.ListenAndServe(":2094", handler)
