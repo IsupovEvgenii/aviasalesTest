@@ -3,6 +3,8 @@ package app
 import (
 	"log"
 	"os"
+
+	"aviasalesTest/internal/app/service"
 )
 
 const (
@@ -10,6 +12,7 @@ const (
 )
 type Application struct {
 	Logger *log.Logger
+	Service *service.Service
 }
 
 func New() *Application {
@@ -17,5 +20,9 @@ func New() *Application {
 }
 
 func (a *Application) Init() error {
+
+	service := service.NewService(a.Logger)
+
+	a.Service = service
 	return nil
 }
