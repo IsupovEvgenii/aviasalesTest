@@ -10,7 +10,7 @@ import (
 func (s *Service) isLonger(flight1 processor.Flight, flight2 processor.Flight) bool {
 	locMoscow, err := time.LoadLocation("Europe/Moscow")
 	if err != nil {
-		s.logger.Fatalf("can not load location asia/bangkok")
+		s.logger.Fatalf("can not load location Europe/Moscow")
 	}
 
 	resultTimeArrival, err := time.Parse("2006-01-02T1504", flight1.ArrivalTimeStamp)
