@@ -13,30 +13,21 @@ type Service struct {
 }
 
 // NewService creates new service
-func NewService(l *log.Logger, fileName1 string, fileName2 string) *Service {
-	data1, err := ioutil.ReadFile(fileName1)
-	if err != nil {
-		l.Fatalf("can not read file1")
-	}
-
-	var resp AirFareSearchResponse
+func NewService(l *log.Logger, fileNames []string) *Service {
 	var responses []AirFareSearchResponse
-	err = xml.Unmarshal(data1, &resp)
-	if err != nil {
-		l.Fatalf("can not unmarshal data1")
-	}
-	responses = append(responses, resp)
+	for _, fileName := range fileNames {
+		data, err := ioutil.ReadFile(fileName)
+		if err != nil {
+			l.Fatalf("can not read file1")
+		}
 
-	data2, err := ioutil.ReadFile(fileName2)
-	if err != nil {
-		l.Fatalf("can not read file2")
+		var resp AirFareSearchResponse
+		err = xml.Unmarshal(data, &resp)
+		if err != nil {
+			l.Fatalf("can not unmarshal data1")
+		}
+		responses = append(responses, resp)
 	}
-
-	err = xml.Unmarshal(data2, &resp)
-	if err != nil {
-		l.Fatalf("can not unmarshal data2")
-	}
-	responses = append(responses, resp)
 
 	return &Service{logger: l, responses: responses}
 }

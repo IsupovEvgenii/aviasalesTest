@@ -23,7 +23,7 @@ func New() *Application {
 
 func (a *Application) Init() error {
 
-	resolver := apiresolver.NewService(a.Logger, "apiresponses/RS_Via-3.xml", "apiresponses/RS_ViaOW.xml")
+	resolver := apiresolver.NewService(a.Logger, []string{"apiresponses/RS_Via-3.xml", "apiresponses/RS_ViaOW.xml"})
 	processor := processor.NewService(a.Logger, resolver)
 	service := service.NewService(a.Logger, processor)
 
